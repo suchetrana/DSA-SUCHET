@@ -1,0 +1,33 @@
+public class TreeSum {
+
+    static class TreeNode {
+        int data;
+        TreeNode left, right;
+
+        TreeNode(int data) {
+            this.data = data;
+        }
+    }
+
+
+    int sumOfNodes(TreeNode root) {
+        if (root == null) return 0;
+        return root.data + sumOfNodes(root.left) + sumOfNodes(root.right);
+    }
+
+    public static void main(String[] args) {
+        TreeSum tree = new TreeSum();
+
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(20);
+        root.right = new TreeNode(30);
+        root.left.left = new TreeNode(40);
+        root.left.right = new TreeNode(50);
+        root.right.right = new TreeNode(60);
+
+       
+
+        int totalSum = tree.sumOfNodes(root);
+        System.out.println("Sum of all nodes: " + totalSum);
+    }
+}
